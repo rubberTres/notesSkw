@@ -44,7 +44,7 @@ body{
     justify-content: center;
     margin:auto;
     text-align:center;
-    color:#06d6a0;
+    color:#f4a261;
 }
 .logowanie form{
     display: flex;
@@ -57,8 +57,8 @@ body{
     height:40px;
     width:200px;
     margin:10px;
-    color: #06d6a0;
-    border: 2px solid #06d6a0;
+    color: #f4a261;
+    border: 2px solid #f4a261;
     text-align:center;
     background: #303030;
     border-radius:50px;
@@ -66,8 +66,8 @@ body{
 }
 .logowanie button{
     background-color: #303030;
-    color: #06d6a0;
-    border: 2px solid #06d6a0;
+    color: #f4a261;
+    border: 2px solid #f4a261;
     width:150px;
     height:30px;
     margin-top:10px;
