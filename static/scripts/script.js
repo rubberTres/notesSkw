@@ -7,8 +7,12 @@ window.onload = function () {
         let ciacho = JSON.parse(ciachoOnload)
         tab = ciacho
         for (let i = 0; i < ciacho.length; i++) {
-            document.getElementsByClassName("ujemneBottom")[0].innerHTML += " <p> - " + ciacho[i].minus + "</p>"
-            document.getElementsByClassName("dodatnieBottom")[0].innerHTML += " <p> - " + ciacho[i].plus + "</p>"
+            if (ciacho[i].plus == "plus") {
+                document.getElementsByClassName("ujemneBottom")[0].innerHTML += " <p> - " + ciacho[i].minus + "</p>"
+            }
+            if (ciacho[i].minus == "minus") {
+                document.getElementsByClassName("dodatnieBottom")[0].innerHTML += " <p> + " + ciacho[i].plus + "</p>"
+            }
         }
     }
 
@@ -32,11 +36,13 @@ window.onload = function () {
         let kwota = document.getElementById("kwota1").value
         let all = kwota + 'zł ' + minus
         if (minus != '') {
-            tab.push({ minus: all })
+            tab.push({ minus: all, plus: "plus" })
             console.log(tab)
             let ciastko = JSON.stringify(tab)
             document.cookie = ciastko
             document.getElementsByClassName("ujemneBottom")[0].innerHTML += "<p>- " + all + "</p>"
+            document.getElementById("ujemneInput").value = ''
+            document.getElementById("kwota1").value = ''
         }
     })
     document.getElementById("btn2").addEventListener("click", function () {
@@ -44,11 +50,13 @@ window.onload = function () {
         let kwota = document.getElementById("kwota2").value
         let all = kwota + 'zł ' + minus
         if (minus != '') {
-            tab.push({ plus: all })
+            tab.push({ minus: "minus", plus: all })
             console.log(tab)
             let ciastko = JSON.stringify(tab)
             document.cookie = ciastko
             document.getElementsByClassName("dodatnieBottom")[0].innerHTML += "<p>+ " + all + "</p>"
+            document.getElementById("dodatnieInput").value = ''
+            document.getElementById("kwota2").value = ''
         }
     })
 };
